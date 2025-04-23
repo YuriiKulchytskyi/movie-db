@@ -1,0 +1,20 @@
+@use "../../../styles/shared.scss";
+
+
+.genreList{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 20px;
+
+    li{
+        width: 300px;
+        border: 1px solid shared.$border-color;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

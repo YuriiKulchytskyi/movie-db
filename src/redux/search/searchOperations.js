@@ -10,10 +10,10 @@ export const getPopularMovies = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`/movie/popular`, {
-        headers:{
-            Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
-            accept: 'application/json'
-        }
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+          accept: "application/json",
+        },
       });
       //
       // console.log(response.data.results);
@@ -26,18 +26,54 @@ export const getPopularMovies = createAsyncThunk(
 );
 
 export const getSearchedMovies = createAsyncThunk(
-  'search/getSearchedMovies',
-  async(data, thunkAPI) => {
+  "search/getSearchedMovies",
+  async (data, thunkAPI) => {
     try {
-        const response = await axios.get(`/search/movie?query=${data}`,{
-          headers:{
-            Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
-            accept: 'application/json'
-          }
-        })
-        return response.data.results
+      const response = await axios.get(`/search/movie?query=${data}`, {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+          accept: "application/json",
+        },
+      });
+      return response.data.results;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message)
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
-)
+);
+export const getGenres = createAsyncThunk(
+  "search/getGenres",
+  async (data, thunkAPI) => {
+    try {
+      const response = await axios.get(`/genre/movie/list`, {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+          accept: "application/json",
+        },
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+export const getMoviesByGenre = createAsyncThunk(
+  "search/getMoviesByGenre",
+  async (genre, thunkAPI) => {
+    try {
+      const response = await axios.get(`/discover/movie?with_genres=${genre}`, {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+          accept: "application/json",
+        },
+      });
+      console.log(response.data);
+      return response.data.results;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

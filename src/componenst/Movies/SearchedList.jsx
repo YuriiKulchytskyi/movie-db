@@ -10,7 +10,7 @@ export const SearchedList = () => {
     return (
         <ul className={css.list}>
             {searchedMovies.map(movie => (
-                <li key={movie.id}>
+                <li key={movie.id} className={css.cardWrapper}>
                     <MovieCard movie={movie}/>
                 </li>
             ))}
