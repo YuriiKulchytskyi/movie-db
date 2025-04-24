@@ -59,7 +59,6 @@ export const getGenres = createAsyncThunk(
   }
 );
 
-
 export const getMoviesByGenre = createAsyncThunk(
   "search/getMoviesByGenre",
   async (genre, thunkAPI) => {
@@ -74,6 +73,25 @@ export const getMoviesByGenre = createAsyncThunk(
       return response.data.results;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getMovieById = createAsyncThunk(
+  "search/getMovieById",
+  async(id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/movie/${id}`, {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+          accept: "application/json",
+        },
+      })
+      console.log(response.data);
+      return response.data;
+      
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message)
     }
   }
 );

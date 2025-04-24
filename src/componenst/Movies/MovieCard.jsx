@@ -10,7 +10,7 @@ export const MovieCard = ({movie}) => {
     return (
         <div>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
-            <Link to={`/movies${movie.id}`}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
             <p>Rate: {movie.vote_average}</p>
             <p>Release date: {releaseDateFormater(movie.release_date)}</p>
         </div>

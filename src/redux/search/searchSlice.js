@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  getMovieById,
   getMoviesByGenre,
   getPopularMovies,
   getSearchedMovies,
@@ -11,6 +12,16 @@ const initialState = {
   isLoading: false,
   error: null,
   moviesOfGenre: [],
+  movie: null,
+};
+
+const setPending = (state) => {
+  state.isLoading = true;
+};
+
+const setRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
 };
 
 const searchSlice = createSlice({
@@ -19,37 +30,30 @@ const searchSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getPopularMovies.pending, (state) => {
-        state.isLoading = true;
-      })
+      .addCase(getPopularMovies.pending, setPending)
+      .addCase(getPopularMovies.rejected, setRejected)
       .addCase(getPopularMovies.fulfilled, (state, action) => {
         state.isLoading = false;
         state.movies = action.payload;
       })
-      .addCase(getPopularMovies.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(getSearchedMovies.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getSearchedMovies.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
+      .addCase(getSearchedMovies.pending, setPending)
+      .addCase(getSearchedMovies.rejected, setRejected)
       .addCase(getSearchedMovies.fulfilled, (state, action) => {
         state.isLoading = false;
         state.searchedMovies = action.payload;
-      }).addCase(getMoviesByGenre.pending, state => {
-        state.isLoading = true;
-      }).addCase(getMoviesByGenre.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      }).addCase(getMoviesByGenre.fulfilled, (state, action) => {
+      })
+      .addCase(getMoviesByGenre.pending, setPending)
+      .addCase(getMoviesByGenre.rejected, setRejected)
+      .addCase(getMoviesByGenre.fulfilled, (state, action) => {
         state.isLoading = false;
         state.moviesOfGenre = action.payload;
       })
-
+      .addCase(getMovieById.pending, setPending)
+      .addCase(getMovieById.rejected, setRejected)
+      .addCase(getMovieById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.movie = action.payload;
+      });
   },
 });
 

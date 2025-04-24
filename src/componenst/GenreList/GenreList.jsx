@@ -18,6 +18,8 @@ export const GenreList = () => {
     navigate('/movie-list')
   };
 
+
+
   const genreList = useSelector((state) => state.filter.genres);
 
   return (

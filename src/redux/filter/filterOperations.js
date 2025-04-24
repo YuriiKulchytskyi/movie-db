@@ -15,7 +15,6 @@ export const getGenres = createAsyncThunk(
           accept: "application/json",
         },
       });
-      console.log(response.data.genres);
       return response.data.genres;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

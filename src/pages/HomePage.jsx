@@ -3,6 +3,7 @@ import { Movies } from "../componenst/Movies/Movies"
 import { Search } from "../componenst/Search/Search"
 
 export const HomePage = () => {
+
     return (
         <main>
             <h1>Movie Explorer</h1>
