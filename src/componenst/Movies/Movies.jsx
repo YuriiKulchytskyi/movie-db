@@ -7,13 +7,20 @@ import { useDispatch, useSelector } from "react-redux";
 export const Movies = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getPopularMovies());
-  }, [dispatch]);
-
   const movies = useSelector((state) => state.search.movies);
+  const isLoading = useSelector((state) => state.search.isLoading);
+
+  useEffect(() => {
+    if (!movies.length) {
+      dispatch(getPopularMovies());
+    }
+  }, [dispatch, movies.length]);
 
   const loopedMovies = [...movies, ...movies];
+
+  if (isLoading || !movies.length) {
+    return <p className={css.loading}>Loading movies...</p>;
+  }
 
   return (
     <div className={css.wrapper}>

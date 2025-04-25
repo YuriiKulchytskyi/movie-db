@@ -37,3 +37,9 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  background: linear-gradient(145deg, #0f0f0f, #af6464);
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+}

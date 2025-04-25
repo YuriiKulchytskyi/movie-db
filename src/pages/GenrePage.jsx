@@ -9,12 +9,12 @@ export const GenrePage = () => {
 
 
   return (
-    <ul className={css.list}>
+    <section className={css.list}>
       {genredMovies.map((movie) => (
-        <li key={movie.id} className={css.cardWrapper}>
+        <div key={movie.id} className={css.cardWrapper}>
           <MovieCard movie={movie}/>
-        </li>
+        </div>
       ))}
-    </ul>
+    </section>
   );
 };

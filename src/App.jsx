@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import "./App.css";
+import css from "./App.module.scss"
 
 
 function App() {
@@ -8,11 +9,11 @@ function App() {
 
   return (
     <>
-      <div>
-        <ul>
+      <div className={css.header}>
+        <nav className={css.navigationBar}>
           <Link to="/home">Home</Link>
           {/* <Link to="/movies">Movies</Link> */}
-        </ul>
+        </nav>
       </div>
       <Outlet />
     </>

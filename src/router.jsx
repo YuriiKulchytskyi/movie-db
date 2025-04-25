@@ -1,6 +1,5 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "./App";
-import { Movies } from "./componenst/Movies/Movies";
 import { SearchedList } from "./componenst/Movies/SearchedList";
 import { HomePage } from "./pages/HomePage";
 import { GenrePage } from "./pages/GenrePage";
@@ -12,6 +11,10 @@ export const router = createBrowserRouter(
       path: "/",
       element: <App />,
       children: [
+        {
+          index: true,
+          element: <Navigate to="/home" replace />,
+        },
         {
           path: "home",
           element: <HomePage />,

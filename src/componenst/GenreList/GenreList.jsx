@@ -7,7 +7,7 @@ import { getMoviesByGenre } from "../../redux/search/searchOperations";
 
 export const GenreList = () => {
   const dispatch = useDispatch();
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getGenres());
@@ -15,24 +15,20 @@ export const GenreList = () => {
 
   const handleCheckListOfMoviesByGenre = (id) => {
     dispatch(getMoviesByGenre(id));
-    navigate('/movie-list')
+    navigate("/movie-list");
   };
-
-
 
   const genreList = useSelector((state) => state.filter.genres);
 
   return (
-    <>
-      <ul className={css.genreList}>
-        {genreList.map((genre) => (
-          <li key={genre.id}>
-            <Link onClick={() => handleCheckListOfMoviesByGenre(genre.id)}>
-              {genre.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className={css.genreList}>
+      {genreList.map((genre) => (
+        <li key={genre.id}>
+          <Link onClick={() => handleCheckListOfMoviesByGenre(genre.id)}>
+            {genre.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
