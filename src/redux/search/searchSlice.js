@@ -13,7 +13,11 @@ const initialState = {
   error: null,
   moviesOfGenre: [],
   movie: null,
+  page: 1,
+  totalPages: null,
+  activeGenre: null, 
 };
+
 
 const setPending = (state) => {
   state.isLoading = true;
@@ -27,7 +31,15 @@ const setRejected = (state, action) => {
 const searchSlice = createSlice({
   name: "search",
   initialState,
-  reducers: {},
+  reducers: {
+    setPage(state, action) {
+      state.page = action.payload;
+    },
+    setActiveGenre(state, action) {
+      state.activeGenre = action.payload;
+    }
+    
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPopularMovies.pending, setPending)
@@ -46,7 +58,8 @@ const searchSlice = createSlice({
       .addCase(getMoviesByGenre.rejected, setRejected)
       .addCase(getMoviesByGenre.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.moviesOfGenre = action.payload;
+        state.moviesOfGenre = action.payload.results;
+        state.totalPages = action.payload.total_pages;
       })
       .addCase(getMovieById.pending, setPending)
       .addCase(getMovieById.rejected, setRejected)
@@ -58,3 +71,4 @@ const searchSlice = createSlice({
 });
 
 export const searchReducer = searchSlice.reducer;
+export const { setPage, setActiveGenre } = searchSlice.actions;

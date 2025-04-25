@@ -4,17 +4,17 @@ import { MovieCard } from "./MovieCard";
 import css from "./Movies.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 
+
 export const Movies = () => {
   const dispatch = useDispatch();
 
   const movies = useSelector((state) => state.search.movies);
   const isLoading = useSelector((state) => state.search.isLoading);
 
+
   useEffect(() => {
-    if (!movies.length) {
-      dispatch(getPopularMovies());
-    }
-  }, [dispatch, movies.length]);
+    dispatch(getPopularMovies(1));
+  }, [dispatch]);
 
   const loopedMovies = [...movies, ...movies];
 

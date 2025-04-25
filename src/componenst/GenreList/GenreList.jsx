@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGenres } from "../../redux/filter/filterOperations";
 import { Link, useNavigate } from "react-router-dom";
 import css from "./Genrelist.module.scss";
-import { getMoviesByGenre } from "../../redux/search/searchOperations";
+import { setActiveGenre, setPage } from "../../redux/search/searchSlice";
 
 export const GenreList = () => {
   const dispatch = useDispatch();
@@ -13,10 +13,14 @@ export const GenreList = () => {
     dispatch(getGenres());
   }, [dispatch]);
 
+
+
   const handleCheckListOfMoviesByGenre = (id) => {
-    dispatch(getMoviesByGenre(id));
+    dispatch(setActiveGenre(id));
+    dispatch(setPage(1)); 
     navigate("/movie-list");
   };
+  
 
   const genreList = useSelector((state) => state.filter.genres);
 
