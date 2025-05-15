@@ -9,6 +9,9 @@
   border-radius: 16px;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-size: "cover";
+  background-position: "center";
+  background-repeat: "no-repeat";
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -107,3 +110,6 @@
   cursor: pointer;
   padding: 0;
 }
+
+
+

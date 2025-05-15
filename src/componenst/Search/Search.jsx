@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getSearchedMovies } from "../../redux/search/searchOperations";
 import { useNavigate } from "react-router-dom";
+import css from "./Search.module.scss";
 
 export const Search = () => {
   const [search, setSearch] = useState("");
@@ -27,9 +28,10 @@ const handleSubmit = (e) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <label htmlFor="search">
         <input
+          className={css.input}
           id="search"
           type="text"
           name="search"
@@ -39,7 +41,7 @@ const handleSubmit = (e) => {
         />
       </label>
 
-      <button type="submit">Search</button>
+      <button className={css.button} type="submit">Search</button>
     </form>
   );
 };

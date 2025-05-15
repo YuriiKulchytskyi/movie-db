@@ -89,6 +89,19 @@
     animation-play-state: paused;
   }
   
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
   
   @keyframes scroll {
     0% {
@@ -99,3 +112,4 @@
     }
   }
   
+

@@ -31,7 +31,7 @@ export const GenrePage = () => {
   };
 
   return (
-    <section>
+    <section className={css.container}>
       {isLoading && <p>Loading...</p>}
       <div className={css.list}>
         {moviesOfGenre.map((movie) => (
@@ -40,7 +40,7 @@ export const GenrePage = () => {
           </div>
         ))}
       </div>
-      <div>
+      <div className={css.pagination}>
         <button onClick={handlePreviousPage} disabled={page === 1}>Prev</button>
         <span>Page {page}</span>
         <button onClick={handleNextPage} disabled={page === totalPages}>Next</button>
