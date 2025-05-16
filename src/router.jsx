@@ -1,11 +1,11 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createHashRouter, Navigate } from "react-router-dom";
 import App from "./App";
 import { SearchedList } from "./componenst/Movies/SearchedList";
 import { HomePage } from "./pages/HomePage";
 import { GenrePage } from "./pages/GenrePage";
 import { MoviePage } from "./pages/MoviePage";
 
-export const router = createBrowserRouter(
+export const router = createHashRouter(
   [
     {
       path: "/",
@@ -28,7 +28,7 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  {
-    basename: "/movie-db",
-  }
+  // {
+  //   basename: "/movie-db",
+  // }
 );
