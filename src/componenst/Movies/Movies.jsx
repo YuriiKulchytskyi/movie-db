@@ -27,7 +27,7 @@ export const Movies = () => {
       <div className={css.slider}>
         <div className={css.track}>
           {loopedMovies.map((movie, index) => (
-            <div key={`${movie.id}-${index}`} className={css.cardWrapper}>
+            <div key={`${movie.id}-${index}`}>
               <MovieCard movie={movie} />
             </div>
           ))}

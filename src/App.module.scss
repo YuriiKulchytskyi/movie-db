@@ -144,7 +144,7 @@
   width: auto;
   height: 50px;
   position: absolute;
-  animation: rotateInsideBox 4s ease-in-out forwards;
+  animation: rotateInsideBox 3.4s ease-in-out forwards;
   transform-origin: left top; 
 }
 
@@ -266,6 +266,18 @@
   }
 }
 
+@media screen and (1440px <= width < 2560px) {
+  @keyframes rotateMove {
+    0%,
+    85% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-300px, -460px) scale(0.2);
+    }
+  }
+}
+
 @media screen and ( width < 768px) {
   .navSearch{
     flex-direction: column;
@@ -303,6 +315,10 @@
 }
 
 @media screen and (768px <= width < 1440px) {
+.insideBox{
+  animation-duration: 3s;
+}
+
   @keyframes rotateMove {
     0%,
     85% {
@@ -343,5 +359,8 @@
     100% {
       transform: translate(-500px, -910px) scale(0.2);
     }
+  }
+  .insideBox{
+    animation-duration: 3.6s;
   }
 }
