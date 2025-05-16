@@ -14,6 +14,14 @@
   align-items: center;
 }
 
+.navSearch{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+
 .navigationBar {
   height: 50px;
   display: flex;
