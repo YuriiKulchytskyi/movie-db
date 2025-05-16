@@ -267,8 +267,16 @@
 }
 
 @media screen and ( width < 768px) {
+  .navSearch{
+    flex-direction: column;
+    // row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    // margin-top: 20px;
+  }
+
   .contentWrapper {
-    animation-duration: 2.3s;
+    animation-duration: 2.5s;
   }
 
   .cap,
@@ -301,7 +309,7 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(-280px, -460px) scale(0.2);
+      transform: translate(-300px, -380px) scale(0.2);
     }
   }
 
@@ -322,6 +330,18 @@
     100% {
       opacity: 0;
       transform: translate(200px, -250px);
+    }
+  }
+}
+
+@media screen and (width >= 2560px) {
+  @keyframes rotateMove {
+    0%,
+    85% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-500px, -910px) scale(0.2);
     }
   }
 }
