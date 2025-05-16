@@ -13,7 +13,7 @@ export const router = createHashRouter(
       children: [
         {
           index: true,
-          element: <Navigate to="/" replace />,
+          element: <Navigate to="/home" replace />,
         },
         {
           path: "home",
