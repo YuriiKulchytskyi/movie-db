@@ -279,7 +279,7 @@
   }
 }
 
-@media screen and ( width < 768px) {
+@media screen and ( width <= 768px) {
   .navSearch{
     flex-direction: column;
     // row-gap: 20px;
@@ -315,7 +315,7 @@
   }
 }
 
-@media screen and (768px <= width <= 1440px) {
+@media screen and (768px < width <= 1440px) {
 .insideBox{
   animation-duration: 3s;
 }
@@ -326,7 +326,7 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(-300px, -380px) scale(0.2);
+      transform: translate(-300px, -420px) scale(0.2);
     }
   }
 
