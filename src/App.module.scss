@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.navSearch{
+.navSearch {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,6 +29,7 @@
   column-gap: 30px;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 
 .appWrapper {
@@ -146,7 +147,7 @@
   position: absolute;
   animation: rotateInsideBox 3.4s ease-in-out forwards;
 
-  transform-origin: left top; 
+  transform-origin: left top;
 }
 
 .circle {
@@ -256,7 +257,6 @@
   }
 }
 
-
 @keyframes rotateMove {
   0%,
   85% {
@@ -274,13 +274,13 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(-300px, -430px) scale(0.2);
+      transform: translate(-310px, -425px) scale(0.2);
     }
   }
 }
 
-@media screen and ( width < 768px) {
-  .navSearch{
+@media screen and (width <= 768px) {
+  .navSearch {
     flex-direction: column;
     // row-gap: 20px;
     align-items: center;
@@ -292,8 +292,20 @@
     animation-duration: 2.5s;
   }
 
+  .navigationBar {
+    display: block;
+    height: auto;
+
+  }
+  .navSearch{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   .cap,
-  .box{
+  .box {
     animation-duration: 1.8;
   }
   @keyframes rotateMove {
@@ -315,10 +327,10 @@
   }
 }
 
-@media screen and (768px <= width <= 1440px) {
-.insideBox{
-  animation-duration: 3s;
-}
+@media screen and (768px < width <= 1440px) {
+  .insideBox {
+    animation-duration: 3s;
+  }
 
   @keyframes rotateMove {
     0%,
@@ -326,7 +338,7 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(-300px, -380px) scale(0.2);
+      transform: translate(-310px, -425px) scale(0.2);
     }
   }
 
@@ -358,10 +370,10 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(-500px, -910px) scale(0.2);
+      transform: translate(-510px, -910px) scale(0.2);
     }
   }
-  .insideBox{
+  .insideBox {
     animation-duration: 3.6s;
   }
 }

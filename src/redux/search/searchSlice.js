@@ -62,8 +62,14 @@ const searchSlice = createSlice({
         state.totalPages = action.payload.total_pages;
       })
       .addCase(getMovieById.pending, setPending)
-      .addCase(getMovieById.rejected, setRejected)
+      .addCase(getMovieById.rejected, (state) => {
+        state.isLoading = false;
+        // console.log(action.payload);
+        state.error = 'Sorry, there is no movie with such ID'
+        
+      })
       .addCase(getMovieById.fulfilled, (state, action) => {
+        state.error = null;
         state.isLoading = false;
         state.movie = action.payload;
       });
