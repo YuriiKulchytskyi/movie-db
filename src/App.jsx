@@ -7,6 +7,7 @@ import { Search } from "./componenst/Search/Search"
 function App() {
   return (
     <main className={css.appWrapper}>
+      <MainLoader />
       <div className={css.contentWrapper}>
         <div className={css.header}>
           <div className={css.navSearch}>
@@ -19,7 +20,6 @@ function App() {
         <Outlet />
       </div>
 
-      <MainLoader />
     </main>
   );
 }

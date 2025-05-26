@@ -34,7 +34,7 @@ export const GenrePage = () => {
       {isLoading && <p>Loading...</p>}
       <div className={css.list}>
         {moviesOfGenre.map((movie) => (
-          <div key={movie.id} className={css.cardWrapper}>
+          <div key={movie.id}>
             <MovieCard movie={movie} />
           </div>
         ))}

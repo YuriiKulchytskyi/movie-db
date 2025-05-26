@@ -7,7 +7,7 @@ export const MainLoader = () => {
         <div className={css.insideBox}>
           <h1>Lights. Camera. Action!</h1>
         </div>
-        <Link to='/home' className={css.container}>
+        <Link to='/home' className={css.container} aria-label="Enter homepage">
           <div className={css.boxWrapper}>
             <ul className={css.cap}>
               <li className={css.blackNWhite}></li>
