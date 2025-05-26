@@ -279,8 +279,13 @@
   }
 }
 
+<<<<<<< HEAD
 @media screen and (width <= 768px) {
   .navSearch {
+=======
+@media screen and ( width <= 768px) {
+  .navSearch{
+>>>>>>> 9c3490c515ddc86998d91bd14e70e50d97c5aa9e
     flex-direction: column;
     // row-gap: 20px;
     align-items: center;
@@ -328,9 +333,15 @@
 }
 
 @media screen and (768px < width <= 1440px) {
+<<<<<<< HEAD
   .insideBox {
     animation-duration: 3s;
   }
+=======
+.insideBox{
+  animation-duration: 3s;
+}
+>>>>>>> 9c3490c515ddc86998d91bd14e70e50d97c5aa9e
 
   @keyframes rotateMove {
     0%,
@@ -338,7 +349,11 @@
       transform: translate(0, 0);
     }
     100% {
+<<<<<<< HEAD
       transform: translate(-310px, -425px) scale(0.2);
+=======
+      transform: translate(-300px, -420px) scale(0.2);
+>>>>>>> 9c3490c515ddc86998d91bd14e70e50d97c5aa9e
     }
   }
 
